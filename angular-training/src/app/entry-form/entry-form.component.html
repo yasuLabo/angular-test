@@ -1,0 +1,24 @@
+<form (ngSubmit)="submitForm()">
+  <label>
+    日付:
+    <input type="date" [(ngModel)]="date" name="date" />
+  </label>
+  <br />
+
+  <label>
+    ジャンル:
+    <select [(ngModel)]="subject" name="subject">
+      <option value="英語">英語</option>
+      <option value="数学">数学</option>
+      <option value="国語">国語</option>
+    </select>
+  </label>
+  <br />
+
+  <label>
+    時間(分):
+    <input type="number" [(ngModel)]="minutes" name="minutes" />
+  </label>
+
+  <button type="submit">登録</button>
+</form>

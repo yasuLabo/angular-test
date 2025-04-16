@@ -1,0 +1,32 @@
+.calendar-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* ← ここがポイント！ 7列固定 */
+  grid-auto-rows: 16px; /* 行の高さ */
+  gap: 20px;
+}
+
+.calendar-cell {
+  width: 30px; /* 親の1frに合わせる */
+  /* aspect-ratio: 1 / 1; 正方形にする（モダンブラウザ対応） */
+  border-radius: 2px;
+  background-color: #eee;
+  gap: 6px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.level-0 {
+  background-color: #ebedf0;
+}
+.level-1 {
+  background-color: #c6e48b;
+}
+.level-2 {
+  background-color: #7bc96f;
+}
+.level-3 {
+  background-color: #239a3b;
+}
+.level-4 {
+  background-color: #196127;
+}

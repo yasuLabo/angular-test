@@ -1,1 +1,10 @@
-<h1>2025/4/1テスト</h1>
+<h1>勉強時間管理アプリ</h1>
+
+<app-entry-form (entryAdd)="onEntryAdded($event)"></app-entry-form>
+
+<hr>
+
+
+<app-entry-list [entries]="entries"></app-entry-list>
+
+<app-calendar [entries]="entries"></app-calendar>
