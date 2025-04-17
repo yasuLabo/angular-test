@@ -1,6 +1,7 @@
-import { Component,EventEmitter,Output } from '@angular/core';
+import { Component,EventEmitter,Output ,OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import{FormsModule} from '@angular/forms';
+import { SupabaseService } from '../supabase.service';
 
 
 @Component({
@@ -9,16 +10,27 @@ import{FormsModule} from '@angular/forms';
   templateUrl: './entry-form.component.html',
   styleUrl: './entry-form.component.css'
 })
-export class EntryFormComponent {
+export class EntryFormComponent  implements OnInit{
   date :string=new Date().toISOString().substring(0,10);
-  subject:string='英語';
+  subject:string='';
   minutes:number=30;
+  subjects:string[]=[];
 
   @Output() entryAdd=new EventEmitter<{
     date:string;
     subject:string;
     minutes:number;
   }>();
+
+  constructor(private supabaseService:SupabaseService){}
+
+  async ngOnInit(){
+    this.subjects=await this.supabaseService.getSubject();
+    console.log('✅ subjects:', this.subjects);
+    if(this.subjects.length>0){
+      this.subject=this.subjects[0];
+    }
+  }
 
   submitForm(){
     this.entryAdd.emit({

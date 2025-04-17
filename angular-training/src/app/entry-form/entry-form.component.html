@@ -5,14 +5,11 @@
   </label>
   <br />
 
-  <label>
-    ジャンル:
-    <select [(ngModel)]="subject" name="subject">
-      <option value="英語">英語</option>
-      <option value="数学">数学</option>
-      <option value="国語">国語</option>
-    </select>
-  </label>
+  <label>ジャンル：</label>
+  <select [(ngModel)]="subject" name="subject">
+    <option *ngFor="let s of subjects" [value]="s">{{ s }}</option>
+  </select>
+  
   <br />
 
   <label>
