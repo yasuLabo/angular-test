@@ -8,7 +8,7 @@
 }
 
 .left-panel{
-    flex: 0 0 500px;
+    flex: 1;
     padding: 16px;
     min-width: 0;
     border-right: 1px solid #ccc;
@@ -16,7 +16,7 @@
 }
 
 .right-panel{
-    /* width: 50%; */
+    flex: 1;
     padding: 16px;
 }
 
