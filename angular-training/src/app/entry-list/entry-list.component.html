@@ -1,11 +1,13 @@
-<div *ngIf="entries.length>0 ;else noData">
-    <h2>一覧</h2>
-    <ul>
-        <li *ngFor="let entry of entries">
-            📅 {{ entry.date }}｜📘 {{ entry.subject }}｜⏱️ {{ entry.minutes }} 分
-        </li>
-    </ul>
+<div class="entry-container" *ngIf="entries.length > 0; else noData">
+  <h2>一覧</h2>
+  <ul>
+    <li *ngFor="let entry of entries">
+      📅 {{ entry.date }}｜📘 {{ entry.subject }}｜⏱️ {{ entry.minutes }} 分
+    </li>
+  </ul>
 </div>
 <ng-template #noData>
-    <p>まだ記録がありません</p>
+  <div class="no-data-placeholder">
+    <p class="no-data">まだ記録がありません</p>
+  </div>
 </ng-template>

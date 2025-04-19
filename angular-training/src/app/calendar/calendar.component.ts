@@ -16,12 +16,12 @@ type CalendarEntry = {
 export class CalendarComponent {
   @Input() entries: CalendarEntry[] = [];
 
-  ngOnInit(){
+  ngOnInit() {
     console.log('test');
   }
 
-   selectedYear: number = new Date().getFullYear();
-   selectedMonth: number = new Date().getMonth();
+  selectedYear: number = new Date().getFullYear();
+  selectedMonth: number = new Date().getMonth();
   monthOptions = [
     '1月',
     '2月',
@@ -42,11 +42,10 @@ export class CalendarComponent {
   yearOptions = [2024, 2025]; // 必要に応じて拡張
 
   getCalendarCells(): { date?: Date; minutes?: number; isEmpty?: boolean }[] {
-
     const cells: { date?: Date; minutes?: number; isEmpty?: boolean }[] = [];
 
-    const start = new Date(this.selectedYear, this.selectedMonth, 1);//選択中の年月の「1日」を表すDateオブジェクトを作成 例：2025年2月 → 2025-02-01
-    const end = new Date(this.selectedYear, this.selectedMonth+1, 0);//例：new Date(2025, 2, 0) → 2025-02-28
+    const start = new Date(this.selectedYear, this.selectedMonth, 1); //選択中の年月の「1日」を表すDateオブジェクトを作成 例：2025年2月 → 2025-02-01
+    const end = new Date(this.selectedYear, this.selectedMonth + 1, 0); //例：new Date(2025, 2, 0) → 2025-02-28
     const daysInMonth = end.getDate();
     const startWeekDay = start.getDay();
     //debugger;
@@ -67,6 +66,13 @@ export class CalendarComponent {
         date: currentDate,
         minutes: entry?.minutes || 0,
       });
+    }
+    // 末尾の空白セルを追加（行を7個に揃える）
+    const remaining = 7 - (cells.length % 7);
+    if (remaining < 7) {
+      for (let i = 0; i < remaining; i++) {
+        cells.push({ isEmpty: true });
+      }
     }
 
     return cells;

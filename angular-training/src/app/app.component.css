@@ -1,0 +1,25 @@
+.layout-container{
+    display: flex;
+    width: 100%;
+    /* max-width: 1000px; */
+    margin:0;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.left-panel{
+    flex: 0 0 500px;
+    padding: 16px;
+    min-width: 0;
+    border-right: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+.right-panel{
+    /* width: 50%; */
+    padding: 16px;
+}
+
+*{
+    box-sizing: border-box;
+}

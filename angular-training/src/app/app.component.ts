@@ -16,10 +16,7 @@ export class AppComponent {
     date: string;
     subject: string;
     minutes: number;
-  }[] = [
-    { date: '2025-03-15', subject: '英語', minutes: 45 },
-    { date: '2025-03-16', subject: '数学', minutes: 90 },
-  ];
+  }[] = [];
 
   onEntryAdded(entry: { date: string; subject: string; minutes: number }) {
     this.entries.push(entry);

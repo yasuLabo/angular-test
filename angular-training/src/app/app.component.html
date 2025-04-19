@@ -1,10 +1,17 @@
-<h1>勉強時間管理アプリ</h1>
+<h1>自己学習カレンダー</h1>
 
 <app-entry-form (entryAdd)="onEntryAdded($event)"></app-entry-form>
 
-<hr>
+<hr />
 
+<div class="layout-container">
+  <div class="left=panel">
+    <app-entry-list [entries]="entries"></app-entry-list>
+  </div>
+  <div class="right-panel">
+    <app-calendar
+      [entries]="entries"
 
-<app-entry-list [entries]="entries"></app-entry-list>
-
-<app-calendar [entries]="entries"></app-calendar>
+    ></app-calendar>
+  </div>
+</div>

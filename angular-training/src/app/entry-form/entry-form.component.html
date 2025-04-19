@@ -9,7 +9,7 @@
   <select [(ngModel)]="subject" name="subject">
     <option *ngFor="let s of subjects" [value]="s">{{ s }}</option>
   </select>
-  
+
   <br />
 
   <label>
@@ -19,3 +19,20 @@
 
   <button type="submit">登録</button>
 </form>
+
+<label>ジャンルの追加</label>
+<input
+  type="text"
+  [(ngModel)]="newSubject"
+  name="newSubject"
+  name="newSubject"
+  placeholder="Git"
+/>
+<button (click)="addSubject()">追加</button>
+
+<ul>
+  <li *ngFor="let s of subjects">
+    {{ s }}
+    <button type="button" (click)="deleteSubject(s)">削除</button>
+  </li>
+</ul>

@@ -31,5 +31,12 @@ export class SupabaseService{
             console.error('Error adding subject:', error);
         }
     }
+
+    async deleteSubject(name:string):Promise<void>{
+        const {error}=await this.client.from('genres').delete().eq('name',name);
+        if(error){
+            console.error('Error deleting subject:', error);
+        }
+    }
             
 }

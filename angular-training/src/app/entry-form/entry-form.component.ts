@@ -16,6 +16,8 @@ export class EntryFormComponent  implements OnInit{
   minutes:number=30;
   subjects:string[]=[];
 
+  newSubject:string='';
+
   @Output() entryAdd=new EventEmitter<{
     date:string;
     subject:string;
@@ -23,6 +25,19 @@ export class EntryFormComponent  implements OnInit{
   }>();
 
   constructor(private supabaseService:SupabaseService){}
+
+  async addSubject(){
+    if(!this.newSubject.trim())return;
+
+    await this.supabaseService.addSubject(this.newSubject);
+    this.subjects=await this.supabaseService.getSubject();
+    this.newSubject='';
+  }
+
+  async deleteSubject(name:string){
+    await this.supabaseService.deleteSubject(name);
+    this.subjects=await this.supabaseService.getSubject();
+  }
 
   async ngOnInit(){
     this.subjects=await this.supabaseService.getSubject();

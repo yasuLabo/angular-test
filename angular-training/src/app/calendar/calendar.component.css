@@ -3,6 +3,9 @@
   grid-template-columns: repeat(7, 1fr); /* ← ここがポイント！ 7列固定 */
   grid-auto-rows: 16px; /* 行の高さ */
   gap: 20px;
+  width: 100%;
+  /* max-width: 420px; */
+  margin: 0 auto;
 }
 
 .calendar-header {
@@ -21,11 +24,11 @@
 
 .calendar-cell {
   width: 30px; /* 親の1frに合わせる */
-  /* aspect-ratio: 1 / 1; 正方形にする（モダンブラウザ対応） */
+  aspect-ratio: 1 / 1;
   border-radius: 2px;
   background-color: #eee;
   gap: 6px;
-  max-width: 360px;
+  /* max-width: 360px; */
   margin: 0 auto;
 }
 
