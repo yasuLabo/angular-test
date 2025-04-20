@@ -38,5 +38,22 @@ export class SupabaseService{
             console.error('Error deleting subject:', error);
         }
     }
+
+    async addEntry(entry:{date:string;subject:string;minutes:number}):Promise<void>{
+        const {error}=await this.client.from('entries').insert([entry]);
+        if(error){
+            console.error('Error adding entry:', error);
+        }
+    }
+
+    async getEntries():Promise<{date:string;subject:string;minutes:number}[]>{
+        const {data,error}=await this.client.from('entries').select('*');
+        if(error){
+            console.error('Error fetching entries:', error);
+            return [];
+        }
+        return data;
+    }
+
             
 }
