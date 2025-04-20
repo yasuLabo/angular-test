@@ -22,9 +22,7 @@ export class CalendarComponent {
     month: number;
   }>();
 
-  ngOnInit() {
-    console.log('test');
-  }
+
 
   localYear: number = new Date().getFullYear();
   localMonth: number = new Date().getMonth();
@@ -69,12 +67,15 @@ export class CalendarComponent {
 
     for (let day = 1; day <= daysInMonth; day++) {
       const currentDate = new Date(this.localYear, this.localMonth, day);
-      const dateStr = this.formatDate(currentDate); // ← ここを修正
+      const dateStr = this.formatDate(currentDate); 
 
-      const entry = this.entries.find((e) => e.date === dateStr);
+      // const entry = this.entries.find((e) => e.date === dateStr);
+      const dailyEntries = this.entries.filter((e) => e.date === dateStr);
+      const totalMinutes = dailyEntries.reduce((sum, entry) => sum + entry.minutes, 0);
+
       cells.push({
         date: currentDate,
-        minutes: entry?.minutes || 0,
+        minutes: totalMinutes
       });
     }
     // 末尾の空白セルを追加（行を7個に揃える）
