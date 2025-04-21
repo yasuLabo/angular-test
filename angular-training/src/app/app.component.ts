@@ -91,4 +91,10 @@ export class AppComponent {
       this.entries = data;
     });
   }
+  
+  onEntryDelete(entry: Entry) {
+    this.entries = this.entries.filter((e) => e !== entry);
+    this.supabaseService.deleteEntry(entry);
+  }
+  
 }

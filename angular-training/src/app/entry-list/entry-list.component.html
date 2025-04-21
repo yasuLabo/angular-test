@@ -3,6 +3,8 @@
   <ul>
     <li *ngFor="let entry of entries">
       📅 {{ entry.date }}｜📘 {{ entry.subject }}｜⏱️ {{ entry.minutes }} 分
+      <button >編集</button>
+      <button (click)="onDelete(entry)">削除</button>
     </li>
   </ul>
 </div>

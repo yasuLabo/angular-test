@@ -1,5 +1,6 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, Output ,EventEmitter} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Entry } from '../entry.model';
 
 @Component({
   selector: 'app-entry-list',
@@ -8,9 +9,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './entry-list.component.css'
 })
 export class EntryListComponent {
-  @Input() entries:{
-    date:string;
-    subject:string;
-    minutes:number;
-  }[]=[];
+  @Input() entries: Entry[] = [];
+  @Output() entryDelete = new EventEmitter<Entry>();
+
+  onDelete(entry: Entry) {
+    this.entryDelete.emit(entry);
+  }
 }

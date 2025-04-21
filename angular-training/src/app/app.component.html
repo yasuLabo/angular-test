@@ -36,7 +36,11 @@
       </label>
     </div>
 
-    <app-entry-list [entries]="filteredEntries"></app-entry-list>
+    <app-entry-list
+      [entries]="filteredEntries"
+      (entryDelete)="onEntryDelete($event)"
+    >
+    </app-entry-list>
   </div>
   <div class="right-panel">
     <app-calendar
