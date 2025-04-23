@@ -1,6 +1,6 @@
 <label>表示する月：</label>
 <select [(ngModel)]="localMonth" (change)="onMonthYearChange()">
-  <option *ngFor="let m of monthOptions; let i = index" [value]="i">
+  <option *ngFor="let m of monthOptions; let i = index" [ngValue]="i">
     {{ m }}
   </option>
 </select>
