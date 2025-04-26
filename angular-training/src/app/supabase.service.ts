@@ -81,4 +81,20 @@ export class SupabaseService {
         console.error('Error deleting entry:', error);
       }
   }
+
+  async upateEntry(
+    original:{date:string;subject:string;minutes:number},
+    updated:{date:string;subject:string;minutes:number}
+  ): Promise<void> {
+    const { error } = await this.client
+      .from('entries')
+      .update(updated)
+      .match({
+        date: original.date,
+        subject: original.subject,
+        minutes: original.minutes,
+      });
+    if (error) console.error('Error updating entry:', error.message);
+    
+  }
 }

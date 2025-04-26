@@ -96,5 +96,15 @@ export class AppComponent {
     this.entries = this.entries.filter((e) => e !== entry);
     this.supabaseService.deleteEntry(entry);
   }
-  
+  onEntryUpdate({original,updated}:{original:Entry;updated:Entry}){
+    const index=this.entries.findIndex(e=>
+      e.date === original.date &&
+      e.subject === original.subject &&
+      e.minutes === original.minutes
+    );
+    if(index>=0) this.entries[index]=updated;
+    this.supabaseService.upateEntry(original,updated);
+  }
+
+
 }
