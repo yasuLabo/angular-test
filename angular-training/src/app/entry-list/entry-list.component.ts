@@ -13,6 +13,7 @@ export class EntryListComponent {
   @Input() entries: Entry[] = [];
   @Output() entryDelete = new EventEmitter<Entry>();
   @Output() entryUpdate = new EventEmitter<{original:Entry;updated:Entry}>();
+  @Input()genres: string[] = [];
 
   editingEntry:Entry|null = null;
   editDate:string = '';

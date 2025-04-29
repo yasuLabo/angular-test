@@ -12,8 +12,10 @@
       </ng-container>
 
       <ng-template #editTpl>
-        <input type="date" [(ngModel)]="editDate" />
-        <input type="text" [(ngModel)]="editSubject" />
+        <input type="data" [(ngModel)]="editDate" />
+        <select [(ngModel)]="editSubject" >
+          <option *ngFor="let g of genres" [value]="g">{{g}}</option>
+        </select>
 
         <input type="number" [(ngModel)]="editMinutes" />
         <button (click)="saveEdit()">保存</button>
