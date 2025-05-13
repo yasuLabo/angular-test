@@ -6,6 +6,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { Entry } from './entry.model';
 import { FormsModule } from '@angular/forms';
 import { SupabaseService } from './supabase.service';
+// import { GenreChartComponent } from './genre-chart/genre-chart.component';
 @Component({
   selector: 'app-root',
   imports: [
@@ -14,6 +15,7 @@ import { SupabaseService } from './supabase.service';
     EntryListComponent,
     CalendarComponent,
     FormsModule,
+    // GenreChartComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@supabase/supabase-js": "^2.49.4",
+    "chart.js": "^4.4.9",
     "dayjs": "^1.11.13",
     "ngx-heatmap-calendar": "^1.0.1",
     "rxjs": "~7.8.0",
